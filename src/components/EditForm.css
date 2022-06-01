@@ -1,0 +1,16 @@
+.button {
+    margin: 10px !important;
+    padding: 10px !important;
+}
+
+.input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
