@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import { Drawer, Box, Button } from '@mui/material'
 import './EditForm.css'
+import { useDispatch} from 'react-redux'
+import { TodoAction } from '../store/Todoslice'
+
 
 const SideBarForm = (props) => {
 
+    const dispatch = useDispatch();
     const [data, setData] = useState({
         todo: ''
     })
 
-    const HandleInput = (e) => {
+    const HandleInput = (e  ) => {
         setData((oldvalue) => {
             return { ...oldvalue, [e.target.name]: e.target.value }
         })
@@ -16,7 +20,7 @@ const SideBarForm = (props) => {
 
     const HandleSubmit = (e) => {
         e.preventDefault();
-        props.newData(data)
+        dispatch(TodoAction.addTodo(data))
         props.setIsDrawerOpen(false);
         setData({
             todo: ''

@@ -1,15 +1,20 @@
 import React from 'react'
 import { Button } from '@mui/material'
 import './Item.css'
+import { useDispatch } from 'react-redux'
+import { TodoAction } from '../store/Todoslice'
 
 const Item = (props) => {
 
+    const dispatch = useDispatch();
+
     const Delete = (e) => {
-        props.handleDelete(props.id)
+        dispatch(TodoAction.RemoveTodo(props.id))
     }
 
     const Edit = (e) => {
-        props.handleEdit(props)
+        const {id , todo} = props
+        props.handleEdit(id , todo)
     }
 
     return (
